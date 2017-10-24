@@ -134,6 +134,10 @@ export class SyntaxWalker {
         this.walkChildren(node);
     }
 
+    protected visitExportDeclaration(node: ts.ExportDeclaration) {
+        this.walkChildren(node);
+    }
+
     protected visitExpressionStatement(node: ts.ExpressionStatement) {
         this.walkChildren(node);
     }
@@ -466,6 +470,10 @@ export class SyntaxWalker {
 
             case ts.SyntaxKind.ExportAssignment:
                 this.visitExportAssignment(node as ts.ExportAssignment);
+                break;
+
+            case ts.SyntaxKind.ExportDeclaration:
+                this.visitExportDeclaration(node as ts.ExportDeclaration);
                 break;
 
             case ts.SyntaxKind.ExpressionStatement:
